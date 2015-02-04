@@ -87,7 +87,7 @@ public class FXMLDocumentController implements Initializable {
   //period sign
   public void btnDecimal(ActionEvent event) {
       // Button was clicked, do something...
-    if(!verifyOperatorPlacement()) {
+    if(!verifyDecimalPlacement()) {
         return;
       }
       System.out.println(".");
@@ -150,6 +150,13 @@ public class FXMLDocumentController implements Initializable {
           return false;
         }
       }
+    return true;
+  }
+  private boolean verifyDecimalPlacement() {
+    if (output.getCharacters().toString().endsWith(".")) {
+      System.out.println("abort");
+      return false;
+    }
     return true;
   }
   
